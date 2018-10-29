@@ -15,4 +15,9 @@ public class ClockTest {
         assertEquals(12, clock.getHours());
         assertEquals(15, clock.getMinutes());
     }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void createNegativeHours() {
+        Clock.of(-1, 15);
+    }
 }
