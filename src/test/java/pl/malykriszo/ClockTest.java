@@ -20,4 +20,9 @@ public class ClockTest {
     public void createNegativeHours() {
         Clock.of(-1, 15);
     }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void createInvalidHours() {
+        Clock.of(25, 15);
+    }
 }
