@@ -14,5 +14,11 @@ public class ProductRatingTest {
         final ProductRating rating = new ProductRating();
         assertEquals(0, rating.getScore());
     }
+    @Test
+    public void setScore(){
+        final ProductRating rating = new ProductRating();
+        rating.setScore(3);
+        assertEquals(3, rating.getScore());
+    }
 
 }
