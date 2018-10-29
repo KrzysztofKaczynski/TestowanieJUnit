@@ -1,5 +1,6 @@
 package pl.malykriszo;
 
+import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
@@ -9,28 +10,31 @@ import static org.junit.Assert.assertEquals;
  */
 public class ProductRatingTest {
 
+    private ProductRating rating;
+
+    @Before
+    public void before() {
+        rating = new ProductRating();
+    }
+
     @Test
     public void create() {
-        final ProductRating rating = new ProductRating();
         assertEquals(0, rating.getScore());
     }
 
     @Test
     public void setScore() {
-        final ProductRating rating = new ProductRating();
         rating.setScore(3);
         assertEquals(3, rating.getScore());
     }
 
     @Test(expected = IllegalArgumentException.class)
     public void setScoreLessThanZero() {
-        final ProductRating rating = new ProductRating();
-        rating.setScore(-1);
+               rating.setScore(-1);
     }
 
     @Test(expected = IllegalArgumentException.class)
     public void setScoreMoreThanFive() {
-        final ProductRating rating = new ProductRating();
-        rating.setScore(6);
+               rating.setScore(6);
     }
 }
