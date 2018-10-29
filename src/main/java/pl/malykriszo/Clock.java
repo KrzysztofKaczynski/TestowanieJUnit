@@ -9,7 +9,7 @@ import java.util.concurrent.TimeUnit;
 public class Clock implements Serializable {
 
     public static Clock of(final int hours, final int minutes) {
-        if (hours >= 24 || minutes >= 60)
+        if (hours < 0 || hours >= 24 || minutes >= 60)
             throw new IllegalArgumentException("Invalid time specification");
         return new Clock(hours, minutes);
     }
