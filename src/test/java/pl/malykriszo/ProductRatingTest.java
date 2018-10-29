@@ -30,11 +30,24 @@ public class ProductRatingTest {
 
     @Test(expected = IllegalArgumentException.class)
     public void setScoreLessThanZero() {
-               rating.setScore(-1);
+        rating.setScore(-1);
     }
 
     @Test(expected = IllegalArgumentException.class)
     public void setScoreMoreThanFive() {
-               rating.setScore(6);
+        rating.setScore(6);
     }
+
+    @Test
+    public void setScoreZero() {
+        rating.setScore(0);
+        assertEquals(0, rating.getScore());
+    }
+
+    @Test
+    public void setScoreFive() {
+        rating.setScore(5);
+        assertEquals(5, rating.getScore());
+    }
+
 }
