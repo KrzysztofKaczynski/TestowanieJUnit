@@ -7,13 +7,19 @@ import java.io.Serializable;
  */
 public final class ProductRating implements Serializable {
 
-    private short score;
+
+    private static final int MIN_SCORE = 0;
+    private static final int MAX_SCORE = 5;
 
     public short getScore() {
         return score;
     }
 
-    public ProductRating(final int score) {
+    public void setScore(final int score) {
+        if (score < MIN_SCORE || score > MAX_SCORE)
+            throw new IllegalArgumentException("Invalid score");
         this.score = (short) score;
     }
+
+    private short score;
 }
